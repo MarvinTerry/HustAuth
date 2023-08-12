@@ -56,12 +56,12 @@ class HustAuth(AuthBase):
             raise ConnectionRefusedError("---HustAuth Failed---")
 
     def _encrypt(self) -> tuple:
-        pub_key = RSA.import_key(b64decode(json.loads(
-            self.session.post('https://pass.hust.edu.cn/cas/rsa').text)['publicKey']))
-        cipher = PKCS1_v1_5.new(pub_key)
+        response = self.session.post('https://pass.hust.edu.cn/cas/rsa')
+        public_key = RSA.import_key(b64decode(json.loads(response.text)['publicKey']))
+        cipher = PKCS1_v1_5.new(public_key)
         encrypted_u = b64encode(cipher.encrypt(self.uid.encode())).decode()
         encrypted_p = b64encode(cipher.encrypt(self.pwd.encode())).decode()
-        return encrypted_u,encrypted_p
+        return encrypted_u, encrypted_p
     
     def _decaptcha(self) -> str:
         captcha_img = self.session.get('https://pass.hust.edu.cn/cas/code', stream=True)
