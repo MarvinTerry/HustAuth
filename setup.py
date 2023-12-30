@@ -20,7 +20,8 @@ setup(
         'Pillow>=10.0.0',
         'pycryptodome>=3.18.0',
         'pytesseract>=0.3.10',
-        'Requests>=2.31.0'
+        'Requests>=2.31.0',
+        'numpy>=1.21.0'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
