@@ -7,7 +7,6 @@ import json
 import re
 from base64 import b64encode, b64decode
 from io import BytesIO
-import pytesseract
 from logging import root as log
 from PIL import Image
 from fake_useragent import UserAgent
@@ -97,13 +96,6 @@ class HustAuth(AuthBase):
             if sum([img.getpixel(pos) < 254 for img in img_list]) >= 3:
                 img_merge.putpixel(pos,0)
         captcha_code = self._ocr(img_merge)
-        # alt_solution:
-        # try:
-        #     captcha_code = pytesseract.image_to_string(img_merge, config='-c tessedit_char_whitelist=0123456789 --psm 6').strip()
-        # except pytesseract.TesseractNotFoundError:
-        #     log.fatal('tesseract is not installed !!', exc_info=True)
-        #     raise EnvironmentError('USE sudo apt install tesseract-ocr OR go to https://tesseract-ocr.github.io/tessdoc/Downloads.html')
-        # log.debug('captcha_code:{}'.format(captcha_code.strip()))
         return captcha_code
 
 
