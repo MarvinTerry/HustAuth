@@ -8,16 +8,9 @@ Variation of [HustLogin](https://github.com/MarvinTerry/HustLogin)
 
 ## Installation
 
-- Step1: install the lib
     ```
     pip install requests-hustauth
     ```
-
-- Step2: install Tesseract-OCR back-end
-    ```
-    sudo apt install tesseract-ocr
-    ```
-    P.S. For Windows users [download binary here](https://digi.bib.uni-mannheim.de/tesseract/) (5.0.0+)
 
 ## Usage
 
