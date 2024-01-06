@@ -8,9 +8,21 @@ Variation of [HustLogin](https://github.com/MarvinTerry/HustLogin)
 
 ## Installation
 
-    ```
-    pip install requests-hustauth
-    ```
+```
+pip install requests-hustauth
+```
+
+## Dependency
+
+*(automatically handled by PIP)*
+
+```
+Requests
+Pillow
+numpy
+pycryptodome
+fake_useragent
+```
 
 ## Usage
 
