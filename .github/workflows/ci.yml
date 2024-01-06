@@ -31,8 +31,8 @@ jobs:
         with:
           path: dist
       
-      - name: cleanup artifacts 
-        run: rm -r dist
+      # - name: cleanup artifacts 
+      #   run: rm -r dist
 
   release:
     runs-on: ubuntu-latest
