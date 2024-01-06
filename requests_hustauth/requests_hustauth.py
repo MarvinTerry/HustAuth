@@ -11,6 +11,7 @@ from logging import root as log
 from PIL import Image
 from fake_useragent import UserAgent
 import numpy as np
+from pkg_resources import resource_filename
 
 class HustAuth(AuthBase):
     """HustAuth for HustPass"""
@@ -68,13 +69,14 @@ class HustAuth(AuthBase):
         Attention: external file needed: ref_digits_data.npz
         ref_digits_data.npz contains 10 ref_images of 0-9
         '''
+        data_path = resource_filename('requests_hustauth', 'data/ref_digits_data.npz')
         crop_params = [
             (0,19,16,38),
             (22,19,38,38),
             (44,19,60,38),
             (66,19,82,38),
         ]
-        ref_digits = list(np.load('./ref_digits_data.npz').values())
+        ref_digits = list(np.load(data_path).values())
         img_digits = [np.array(img_org.crop(crop_params[i])) for i in range(0,4)]
         code = ''
         for img_d in img_digits:

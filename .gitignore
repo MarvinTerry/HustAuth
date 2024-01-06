@@ -153,3 +153,4 @@ cython_debug/
 
 /dev/
 secret.txt
+eg_secret.py

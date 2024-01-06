@@ -12,6 +12,7 @@ setup(
     author_email='marvinterry2004@gmail.com',
     url='https://github.com/MarvinTerry/HustAuth',
     packages=['requests_hustauth'],
+    package_data={'requests_hustauth': ['data/ref_digits_data.npz']},
     license='MIT',
     long_description=long_description,
     long_description_content_type = 'text/markdown',
@@ -20,7 +21,8 @@ setup(
         'Pillow>=10.0.0',
         'pycryptodome>=3.18.0',
         'Requests>=2.31.0',
-        'numpy>=1.21.0'
+        'numpy',
+        'setuptools'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
